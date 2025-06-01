@@ -1,9 +1,9 @@
 {
-  "domain": "mangarr-plugin",
-  "name": "Your Mangarr plugin name",
+  "domain": "asuratoon",
+  "name": "AsuraToon",
   "codeowner": ["Makhuta"],
-  "documentation": "https://github.com/MangarrTeam/mangarr-plugin",
-  "issue_tracker": "https://github.com/MangarrTeam/mangarr-plugin/issues",
+  "documentation": "https://github.com/MangarrTeam/mangarr-asuratoon-plugin",
+  "issue_tracker": "https://github.com/MangarrTeam/mangarr-asuratoon-plugin/issues",
   "version": "1.0.0",
   "nsfw": false
 }
