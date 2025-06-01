@@ -1,0 +1,9 @@
+{
+  "domain": "mangarr-plugin",
+  "name": "Your Mangarr plugin name",
+  "codeowner": ["Makhuta"],
+  "documentation": "https://github.com/MangarrTeam/mangarr-plugin",
+  "issue_tracker": "https://github.com/MangarrTeam/mangarr-plugin/issues",
+  "version": "1.0.0",
+  "nsfw": false
+}
