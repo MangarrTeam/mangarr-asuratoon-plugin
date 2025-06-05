@@ -106,8 +106,8 @@ class AsuraToon(MangaPluginBase):
         if match:
             manga["name"] = match.group(1)
 
-        coverNode = dom.xpath("//div[@class='bigcover']")[0]
-        coverParentNode = coverNode.getparent()
+        coverNode = dom.xpath("//img[@alt='poster' and @width >= 200 and @height >= 350]")[0]
+        coverParentNode = coverNode.getparent().getparent()
         descriptionNode = coverParentNode.xpath(".//span/p")[0]
 
         descriptionHtml = html.fromstring(etree.tostring(descriptionNode))
