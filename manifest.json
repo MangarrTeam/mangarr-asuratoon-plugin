@@ -4,6 +4,6 @@
   "codeowner": ["Makhuta"],
   "documentation": "https://github.com/MangarrTeam/mangarr-asuratoon-plugin",
   "issue_tracker": "https://github.com/MangarrTeam/mangarr-asuratoon-plugin/issues",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "nsfw": false
 }
