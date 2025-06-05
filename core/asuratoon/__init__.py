@@ -147,9 +147,11 @@ class AsuraToon(MangaPluginBase):
         added_urls = set()
         chapters = []
         for chapter in chapterList[::-1]:
-            chapter_info = chapter.xpath("./h3")
-            name_element = html.fromstring(etree.tostring(chapter_info[0]))
-            date_element = html.fromstring(etree.tostring(chapter_info[1])) if len(chapter_info) >= 2 else None
+            chapter_infos = chapter.xpath("./h3")
+            if len(chapter_infos) < 2:
+                continue
+            name_element = html.fromstring(etree.tostring(chapter_infos[0]))
+            date_element = html.fromstring(etree.tostring(chapter_infos[1]))
             chapter_dict = self.get_chapter_dict()
             chapter_dict["url"] = f'{self.base_url}/series/{chapter.get("href")}'
             chapter_dict["source_url"] = chapter_dict["url"]
@@ -162,7 +164,7 @@ class AsuraToon(MangaPluginBase):
             name_match = name_rex.match(name_element.text_content())
             chapter_dict["chapter_number"] = name_match.group(1)
             chapter_dict["name"] = name_match.group(2) if name_match and name_match.group(2) and len(name_match.group(2).strip()) > 1 else str(chapter_dict["chapter_number"])
-            date_str = date_element.text_content() if date_element else None
+            date_str = date_element.text_content()
 
             if date_str:
                 try:
