@@ -153,16 +153,16 @@ class AsuraToon(MangaPluginBase):
             name_element = html.fromstring(etree.tostring(chapter_infos[0]))
             date_element = html.fromstring(etree.tostring(chapter_infos[1]))
             chapter_dict = self.get_chapter_dict()
-            chapter_dict["source_url"] = chapter_dict["url"]
-
-            if chapter_dict["url"] in added_urls:
-                continue
-
-            added_urls.add(chapter_dict["url"])
 
             name_match = name_rex.match(name_element.text_content())
             chapter_dict["chapter_number"] = name_match.group(1)
+
             chapter_dict["url"] = f'{url}/chapter/{chapter_dict["chapter_number"]}'
+            chapter_dict["source_url"] = chapter_dict["url"]
+            if chapter_dict["url"] in added_urls:
+                continue
+            added_urls.add(chapter_dict["url"])
+            
             chapter_dict["name"] = name_match.group(2) if name_match and name_match.group(2) and len(name_match.group(2).strip()) > 1 else str(chapter_dict["chapter_number"])
             date_str = date_element.text_content()
 
